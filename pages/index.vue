@@ -1,5 +1,9 @@
 <template>
-  <Tutorial/>
+  <div>
+    <Tutorial/>
+    ㄹㄹㄹ
+
+  </div>
 </template>
 
 <script>
