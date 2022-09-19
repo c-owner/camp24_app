@@ -43,7 +43,10 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [],
+    buildModules: [
+        '@vueuse/nuxt',
+        '@nuxtjs/moment', // dateMixin 모듈 추가
+    ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -67,7 +70,7 @@ export default {
         proxy: true,
     },
     router: {
-        prefetchLinks: false
+        prefetchLinks: false,
     },
     cache: {
         // max: 캐시에 사용되는 컴포넌트의 수
