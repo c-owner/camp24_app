@@ -1,69 +1,133 @@
-# camp24_app
+# ionic-nuxt-app [![Build Status](https://travis-ci.org/daggerok/ionic-nuxt-app.svg?branch=master)](https://travis-ci.org/daggerok/ionic-nuxt-app) [![CI](https://github.com/daggerok/ionic-nuxt-app/workflows/CI/badge.svg)](https://github.com/daggerok/ionic-nuxt-app/actions?query=workflow%3ACI)
+Ionic + Nuxt.js setup
 
-## Build Setup
+## setup
+
+create regular nuxt app:
 
 ```bash
-# install dependencies
-$ npm install
+npm i -g create-nuxt-app
+create-nuxt-app ionic-nuxt-app
+cd ionic-nuxt-app/
+npm i -E @ionic/core @ionic/vue
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+# IMPORTANT:
+npm i -ED jest@24.9.0
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+add `plugins/ionic.js` file:
 
-## Special Directories
+```js
+import Vue from 'vue';
+// import Ionic from '@ionic/vue';
+import { defineCustomElements as Ionic } from "@ionic/core/loader"; // add a direct link to @ionic/core
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+Vue.use(Ionic);
+Vue.config.ignoredElements = [
+  /^ion-/,
+];
+```
 
-### `assets`
+edit `layoutes/default.vue` file:
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+```vue
+<template>
+  <ion-app>
+    <nuxt />
+  </ion-app>
+</template>
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+edit `pages/index.vue` file:
 
-### `components`
+```vue
+<template>
+  <!-- Add some ionic markup... -->
+  <ion-page>
+    <ion-header>
+      <ion-toolbar class="toolbar-md-primary">
+        <ion-title>Ionic Nuxt App</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <Logo/>
+    <ion-content class="content">
+      <ion-card>
+        <ion-card-subtitle>Ololo</ion-card-subtitle>
+        <ion-card-title>Trololo</ion-card-title>
+        <ion-card-content>
+          <h1>Hololo!</h1>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+  </ion-page>
+</template>
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+<script>
+  import Logo from '~/components/Logo.vue';
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+  export default {
+    components: {
+      Logo,
+    },
+  };
+</script>
+```
 
-### `layouts`
+finally, edit `nuxt.config.js` file:
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+```js
+// let's pick <base href="/ionic-nuxt-app/" /> when GitHub pages:
+const baseHref = process.env.BASE_HREF || '/';
+export default {
+  head: {
+    link: [
+      // favicon for GitBub pages base href
+      { rel: 'icon', type: 'image/x-icon', href: baseHref + 'favicon.ico' }
+    ]
+  },
+  css: [
+    // add required css:
+    '../node_modules/@ionic/core/css/core.css',
+    '../node_modules/@ionic/core/css/normalize.css',
+    '../node_modules/@ionic/core/css/structure.css',
+    '../node_modules/@ionic/core/css/typography.css',
+    '../node_modules/@ionic/core/css/ionic.bundle.css',
+  ],
+  plugins: [
+    // add created plugin:
+    { src: '~/plugins/ionic.js', mode: 'client' },
+  ],
+  generate: {
+    routes: [
+      '/',
+    ],
+  },
+  router: {
+    // router with correct public path
+    base: baseHref,
+    mode: 'history',
+  },
+  // skipped others...
+}
+```
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+## build, test and run
 
+```bash
+rm -rf node_modules package-lock.json dist ; npm i ; npm audit fix ; npm t
+npm start
+http :3000
+```
 
-### `pages`
+## resources
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+* https://forum.ionicframework.com/t/is-it-possible-to-use-ionic-with-nuxt/163202/3
+* https://ionicframework.com/docs/installation/cdn
+* [Nuxt.js docs](https://nuxtjs.org)
+* https://github.com/daggerok/webflux-kotlin-ionic-nuxt-mono-app
+* https://github.com/daggerok/typescript-ionic-nuxt-app
+* https://github.com/daggerok/spring-boot-nuxt-spa
+* https://github.com/daggerok/vue-ionic-example
+* https://github.com/daggerok/nuxt-examples
+* https://github.com/daggerok/vue-examples
+* https://alligator.io/vuejs/vue-ionic/
