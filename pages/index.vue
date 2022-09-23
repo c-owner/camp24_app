@@ -6,23 +6,37 @@
             </ion-toolbar>
         </ion-header>
         <ion-content class="content">
-            <ion-card>
-                <ion-card-subtitle>Ololo</ion-card-subtitle>
-                <ion-card-title>Trololo</ion-card-title>
-                <ion-card-content>
-                    <h1>Hololo!</h1>
-                </ion-card-content>
-            </ion-card>
+            <div>
+
+            </div>
+            <div class="bottom_btn_wrap ion-margin-bottom">
+                <ion-button href="/login" expand="block">로그인</ion-button>
+                <ion-button href="/register" expand="block">회원가입</ion-button>
+            </div>
         </ion-content>
     </ion-page>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
 
 export default {
-    components: {
-        Logo,
-    },
+    name: 'IndexPage',
+    data() {
+        return {
+
+        }
+    }
 };
 </script>
+
+<style>
+.content {
+    height: 100vh;
+}
+.bottom_btn_wrap {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+
+}
+</style>
