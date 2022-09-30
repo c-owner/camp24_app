@@ -3,6 +3,7 @@ const baseHref = process.env.BASE_HREF || '/';
 export default {
     target: 'static',
     mode: 'universal',
+    ssr: true,
     head: {
         title: process.env.npm_package_name || '',
         meta: [
