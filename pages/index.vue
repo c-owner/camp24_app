@@ -1,10 +1,5 @@
 <template>
     <ion-page>
-        <ion-header>
-            <ion-toolbar class="toolbar-md-primary">
-                <ion-title>캠핑24</ion-title>
-            </ion-toolbar>
-        </ion-header>
         <ion-content class="content">
             <div>
 
