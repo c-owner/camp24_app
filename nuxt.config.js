@@ -8,7 +8,10 @@ export default {
         title: process.env.npm_package_name || '',
         meta: [
             {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+            {
+                name: 'viewport',
+                content: 'initial-scale=1, user-scalable=no, width=device-width, height=device-height, viewport-fit=cover'
+            },
             {
                 hid: 'description',
                 name: 'description',
@@ -27,18 +30,13 @@ export default {
     ** Global CSS
     */
     css: [
-        '../node_modules/@ionic/core/css/core.css',
-        '../node_modules/@ionic/core/css/normalize.css',
-        '../node_modules/@ionic/core/css/structure.css',
-        '../node_modules/@ionic/core/css/typography.css',
-        '../node_modules/@ionic/core/css/ionic.bundle.css',
-        '@/assets/css/main.css',
+        '~assets/css/main.css',
     ],
     /*
     ** Plugins to load before mounting the App
     */
     plugins: [
-        {src: '~/plugins/ionic.js', mode: 'client'},
+        // {src: '~/plugins/ionic.js', mode: 'client'},
     ],
     /*
     ** Nuxt.js dev-modules

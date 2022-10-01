@@ -1,5 +1,5 @@
 {
-    "name": "camp24-nuxt-app",
+    "name": "캠핑친구24",
     "version": "0.0.0",
     "description": "My Nuxt.js Camping app",
     "author": "corner",
@@ -18,17 +18,17 @@
         "logs": "pm2 logs",
         "stop": "pm2 kill",
         "app_init": "npx cap init",
-        "ios": "npx cap add ios && npm run build && npm run generate",
-        "android": "npx cap add android && npm run build && npm run generate",
-        "app_update": "npx cap copy",
-        "ios_error": "cd ios && pod deintegrate && pod install"
+        "app_update": "npm run build && npm run generate && npx cap copy",
+        "ios": "npx cap sync ios && npx cap open ios",
+        "android": "npx cap sync android && npx cap open android",
+        "ios_error": "rm -rf ios && npx cap add ios && npm run build && npm run generate && cd ios && pod deintegrate && pod install",
+        "android_error": "rm -rf ios && npx cap add android && npm run build && npm run generate && studio android"
     },
     "dependencies": {
+        "@capacitor/android": "^4.3.0",
         "@capacitor/cli": "^4.3.0",
         "@capacitor/core": "^4.3.0",
         "@capacitor/ios": "^4.3.0",
-        "@ionic/core": "^6.2.9",
-        "@ionic/vue": "^6.2.9",
         "@nuxtjs/axios": "5.10.3",
         "@nuxtjs/component-cache": "^1.1.6",
         "@nuxtjs/dotenv": "1.4.1",
