@@ -2,7 +2,7 @@ const baseHref = process.env.BASE_HREF || '/';
 
 export default {
     target: 'static',
-    mode: 'universal',
+    mode: 'spa',
     ssr: true,
     head: {
         title: process.env.npm_package_name || '',
@@ -32,12 +32,13 @@ export default {
         '../node_modules/@ionic/core/css/structure.css',
         '../node_modules/@ionic/core/css/typography.css',
         '../node_modules/@ionic/core/css/ionic.bundle.css',
+        '@/assets/css/main.css',
     ],
     /*
     ** Plugins to load before mounting the App
     */
     plugins: [
-        {src: '~/plugins/ionic.js', mode: 'client'},
+        {src: '~/plugins/ionic.js', mode: 'csr'},
     ],
     /*
     ** Nuxt.js dev-modules
@@ -47,6 +48,7 @@ export default {
     buildModules: [
         // '@nuxtjs/router',
         '@nuxtjs/moment', // dateMixin 모듈 추가
+        '@nuxt/postcss8', // tailwind css 추가
     ],
     /*
     ** Nuxt.js modules
@@ -80,15 +82,28 @@ export default {
         }
     },
     build: {
+        publicPath: '/nuxt/',
         /*
         ** You can extend webpack config here
         */
         babel: {
-            compact: true,
-        },
-        extend(config, ctx) {
-        }
+            // compact: true,
+            plugins: [
+                ["@babel/plugin-proposal-private-property-in-object", {"loose": true}],
+                ['@babel/plugin-proposal-private-methods', {loose: true}]
 
+            ],
+        },
+
+        extend(config, ctx) {
+        },
+
+        postcss: {
+            plugins: {
+                tailwindcss: {},
+                autoprefixer: {},
+            },
+        },
     },
     generate: {
         routes: [
@@ -104,6 +119,6 @@ export default {
     server: {
         port: 3000, // default: 3000
         host: "0.0.0.0", // default: localhost
+        iosScheme: "nuxtmobile"
     }
-
 };

@@ -1,11 +1,21 @@
 <template>
     <ion-app>
-        <ion-header>
-            <ion-toolbar class="toolbar-md-primary">
-                <ion-title><button @click="lastBack();">돌아가기</button> 캠핑24</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <nuxt/>
+        <ion-page>
+            <ion-header>
+                <ion-toolbar class="toolbar-md-primary">
+                    <ion-title><button @click="lastBack();">돌아가기</button> 캠핑24</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content class="content">
+                <nuxt/>
+            </ion-content>
+            <ion-fotter class="footer">
+                <div class="bottom_btn_wrap ion-margin-bottom">
+                    <ion-button href="/user/login" expand="block">로그인</ion-button>
+                    <ion-button href="/user/register" expand="block">회원가입</ion-button>
+                </div>
+            </ion-fotter>
+        </ion-page>
     </ion-app>
 </template>
 
@@ -37,3 +47,10 @@ export default {
     },
 }
 </script>
+
+
+<style>
+.content {
+    height: calc(100vh - 160px);
+}
+</style>
