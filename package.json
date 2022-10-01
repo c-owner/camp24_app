@@ -1,6 +1,6 @@
 {
     "name": "캠핑친구24",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "My Nuxt.js Camping app",
     "author": "corner",
     "private": true,
@@ -45,6 +45,7 @@
         "@babel/preset-env": "7.9.6",
         "@nuxt/postcss8": "^1.1.3",
         "@nuxtjs/pwa": "3.0.0-beta.20",
+        "@nuxtjs/tailwindcss": "^5.3.3",
         "@types/node": "13.13.4",
         "@vue/test-utils": "1.0.0-beta.33",
         "autoprefixer": "^10.4.12",

@@ -1,7 +1,7 @@
 const baseHref = process.env.BASE_HREF || '/';
 
 export default {
-    target: 'server',
+    target: 'static',
     // mode: 'spa', // default
     ssr: false, // default
     head: {
@@ -30,7 +30,8 @@ export default {
     ** Global CSS
     */
     css: [
-        '~assets/css/main.css',
+        '~assets/css/index.css',
+        '~assets/css/app.css'
     ],
     /*
     ** Plugins to load before mounting the App
@@ -58,7 +59,17 @@ export default {
         '@nuxtjs/toast',
         ['@nuxtjs/component-cache', {maxAge: 5000}],
         '@nuxtjs/moment',
+        '@nuxtjs/tailwindcss',
     ],
+    tailwindcss: {
+        // Options
+        cssPath: '~assets/css/main.css',
+        configPath: 'tailwind.config.js',
+        exposeConfig: false,
+        config: {},
+        injectPosition: 0,
+        viewer: true,
+    },
     moment: {
         locales: ['ko'],
         defaultTimezone: 'Asia/Seoul',
