@@ -3,15 +3,26 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
-        "./components/**/*.{js,vue,ts}",
-        "./layouts/**/*.vue",
-        "./pages/**/*.vue",
-        "./plugins/**/*.{js,ts}",
-        "./nuxt.config.{js,ts}",
-        "./store/**/*.js",
+        "components/**/*.{js,vue,ts}",
+        "layouts/**/*.vue",
+        "pages/**/*.vue",
+        "plugins/**/*.{js,ts}",
+        "nuxt.config.{js,ts}",
+        "store/**/*.js",
     ],
+    // darkMode: 'bg-black', // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'primary': '#1a202c',
+            }
+        },
+    },
+    variants: {
+        extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled'],
+        },
     },
     plugins: [
         plugin(function ({addUtilities}) {

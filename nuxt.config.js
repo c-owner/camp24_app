@@ -5,6 +5,9 @@ export default {
     // mode: 'spa', // default
     ssr: false, // default
     head: {
+        htmlAttrs: {
+            lang: 'ko'
+        },
         title: process.env.npm_package_name || '',
         meta: [
             {charset: 'utf-8'},
@@ -20,7 +23,8 @@ export default {
         ],
         link: [
             {rel: 'icon', type: 'image/x-icon', href: baseHref + 'favicon.ico'},
-        ]
+            {rel: "stylesheet", type: "text/css", href: "https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css"}
+        ],
     },
     /*
     ** Customize the progress-bar color
@@ -38,6 +42,7 @@ export default {
     */
     plugins: [
         // {src: '~/plugins/ionic.js', mode: 'client'},
+        {src: '~/plugins/tailwind.js'},
     ],
     /*
     ** Nuxt.js dev-modules
@@ -59,7 +64,7 @@ export default {
         '@nuxtjs/toast',
         ['@nuxtjs/component-cache', {maxAge: 5000}],
         '@nuxtjs/moment',
-        '@nuxtjs/tailwindcss',
+        '@nuxtjs/tailwindcss'
     ],
     tailwindcss: {
         // Options

@@ -38,6 +38,8 @@
         "nuxt": "2.15.3",
         "vue": "^2.7.10",
         "vue-server-renderer": "^2.7.10",
+        "vue-tailwind": "^2.5.1",
+        "vue-tailwind-icons": "^0.1.2",
         "vue-template-compiler": "^2.7.10",
         "webpack": "^4.46.0"
     },
