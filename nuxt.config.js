@@ -1,9 +1,9 @@
 const baseHref = process.env.BASE_HREF || '/';
 
 export default {
-    target: 'static',
-    mode: 'spa',
-    ssr: true,
+    target: 'server',
+    // mode: 'spa', // default
+    ssr: false, // default
     head: {
         title: process.env.npm_package_name || '',
         meta: [
@@ -38,7 +38,7 @@ export default {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        {src: '~/plugins/ionic.js', mode: 'csr'},
+        {src: '~/plugins/ionic.js', mode: 'client'},
     ],
     /*
     ** Nuxt.js dev-modules
