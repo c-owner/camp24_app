@@ -34,6 +34,8 @@ export default {
     ** Global CSS
     */
     css: [
+        'bootstrap/dist/css/bootstrap.css',
+        'bootstrap-vue/dist/bootstrap-vue.css',
         '~assets/css/index.css',
         '~assets/css/app.css'
     ],
@@ -42,7 +44,6 @@ export default {
     */
     plugins: [
         // {src: '~/plugins/ionic.js', mode: 'client'},
-        {src: '~/plugins/tailwind.js'},
     ],
     /*
     ** Nuxt.js dev-modules
@@ -51,8 +52,9 @@ export default {
 
     buildModules: [
         // '@nuxtjs/router',
+        '@vueuse/nuxt',
+        '@nuxt/image',
         '@nuxtjs/moment', // dateMixin 모듈 추가
-        '@nuxt/postcss8', // tailwind css 추가
     ],
     /*
     ** Nuxt.js modules
@@ -64,16 +66,11 @@ export default {
         '@nuxtjs/toast',
         ['@nuxtjs/component-cache', {maxAge: 5000}],
         '@nuxtjs/moment',
-        '@nuxtjs/tailwindcss'
+        ['bootstrap-vue/nuxt'],
     ],
-    tailwindcss: {
-        // Options
-        cssPath: '~assets/css/main.css',
-        configPath: 'tailwind.config.js',
-        exposeConfig: false,
-        config: {},
-        injectPosition: 0,
-        viewer: true,
+    bootStrapVue: {
+        bootstrapCSS: false, // Or `css: false`
+        bootstrapVueCSS: false, // Or `bvCSS: false`
     },
     moment: {
         locales: ['ko'],
@@ -112,12 +109,6 @@ export default {
         extend(config, ctx) {
         },
 
-        postcss: {
-            plugins: {
-                tailwindcss: {},
-                autoprefixer: {},
-            },
-        },
     },
     generate: {
         routes: [

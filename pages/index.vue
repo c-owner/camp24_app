@@ -1,7 +1,9 @@
 <template>
 
     <div>
-        <div>메인</div>
+
+
+
     </div>
 
 </template>
