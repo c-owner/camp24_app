@@ -36,12 +36,11 @@ export default {
     css: [
         'bootstrap/dist/css/bootstrap.css',
         'bootstrap-vue/dist/bootstrap-vue.css',
-        '~assets/css/index.css',
+        '~assets/css/common.css',
         '~assets/css/app.css',
         '~assets/css/auth.css',
-        '~assets/css/common.css',
         '~assets/css/util.css',
-        '~assets/css/bootstrap-btn.css',
+        '~assets/css/bootstrap-custom.css',
 
     ],
     /*
