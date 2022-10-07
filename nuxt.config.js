@@ -37,7 +37,12 @@ export default {
         'bootstrap/dist/css/bootstrap.css',
         'bootstrap-vue/dist/bootstrap-vue.css',
         '~assets/css/index.css',
-        '~assets/css/app.css'
+        '~assets/css/app.css',
+        '~assets/css/auth.css',
+        '~assets/css/common.css',
+        '~assets/css/util.css',
+        '~assets/css/bootstrap-btn.css',
+
     ],
     /*
     ** Plugins to load before mounting the App
@@ -54,7 +59,7 @@ export default {
         // '@nuxtjs/router',
         '@vueuse/nuxt',
         '@nuxt/image',
-        '@nuxtjs/moment', // dateMixin 모듈 추가
+        // '@nuxtjs/moment', // dateMixin 모듈 추가
     ],
     /*
     ** Nuxt.js modules
@@ -65,18 +70,28 @@ export default {
         '@nuxtjs/dotenv',
         '@nuxtjs/toast',
         ['@nuxtjs/component-cache', {maxAge: 5000}],
-        '@nuxtjs/moment',
+        // '@nuxtjs/moment',
+        '@nuxtjs/dayjs',
         ['bootstrap-vue/nuxt'],
     ],
+    dayjs: {
+        locales: ['ko'],
+        defaultLocale: 'ko',
+        defaultTimeZone: 'Asia/Seoul',
+        plugins: [
+            'utc', // import 'dayjs/plugin/utc'
+            'timezone' // import 'dayjs/plugin/timezone'
+        ] // Your Day.js plugin
+    },
     bootStrapVue: {
         bootstrapCSS: false, // Or `css: false`
         bootstrapVueCSS: false, // Or `bvCSS: false`
     },
-    moment: {
+    /*moment: {
         locales: ['ko'],
         defaultTimezone: 'Asia/Seoul',
 
-    },
+    },*/
     axios: { // axios 설정
         proxy: true,
     },

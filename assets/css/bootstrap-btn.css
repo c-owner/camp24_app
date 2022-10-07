@@ -1,0 +1,7 @@
+.btn-black {
+    background-color: var(--black);
+}
+.btn-dark {
+    background-color: var(--blue-grey-darken-2) !important;
+    color: var(--black);
+}

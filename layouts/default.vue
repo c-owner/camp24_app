@@ -5,9 +5,9 @@
                 <button @click="routerBack()" v-if="$route.path !== '/'"
                     class="ph-arrow-bend-down-left text-sm font-bold px-2 py-2 rounded hover:shadow-lg "></button>
                 <button @click="moveUrl('/user/register')" v-if="$route.path !== '/user/register'"
-                    class="bg-gray-700 text-white active:bg-black text-sm font-bold px-2 py-2 rounded shadow hover:shadow-lg ">회원가입</button>
+                    class="btn btn-dark">회원가입</button>
                 <button @click="moveUrl('/user/login')" v-if="$route.path !== '/user/login'"
-                    class="bg-gray-700 text-white active:bg-black text-sm font-bold px-2 py-2 rounded shadow hover:shadow-lg ">로그인</button>
+                    class="btn btn-dark">로그인</button>
 
             </div>
             <div class="app-content">
