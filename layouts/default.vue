@@ -17,7 +17,8 @@
             <div class="app-content">
                 <Nuxt />
             </div>
-            <div class="app-footer">
+            <div class="app-footer flex bg-dark text-white">
+                <button class="btn text-white"><i class="ph-user" /></button>
             </div>
         </div>
     </div>
@@ -57,5 +58,11 @@ export default {
 }
 .app-content {
     height: calc(100vh - 160px);
+}
+.app-footer {
+    height: 80px;
+    padding: 0 24px;
+    position: sticky;
+    bottom: 0;
 }
 </style>
