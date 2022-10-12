@@ -8,17 +8,14 @@
                     <button @click="routerBack()" v-if="$route.path !== '/'"
                         class="ph-arrow-bend-down-left btn p-1 rounded bg-white"></button>
                 </div>
-                <button @click="moveUrl('/user/register')" v-if="$route.path !== '/user/register'"
-                    class="btn btn-dark">회원가입</button>
-                <button @click="moveUrl('/user/login')" v-if="$route.path !== '/user/login'"
-                    class="btn btn-dark">로그인</button>
-
             </div>
             <div class="app-content">
                 <Nuxt />
             </div>
-            <div class="app-footer flex bg-dark text-white">
-                <button class="btn text-white"><i class="ph-user" /></button>
+            <div class="app-footer flex bg-dark text-white space-between">
+                <button class="btn text-white"><i class="ph-magnifying-glass ft24" /></button>
+                <button class="btn text-white" @click="moveUrl('/')"><i class="ph-house ft24" /></button>
+                <button class="btn text-white" @click="moveUrl('/user/mypage')"><i class="ph-user ft24" /></button>
             </div>
         </div>
     </div>

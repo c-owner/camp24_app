@@ -73,6 +73,13 @@ export default {
         '@nuxtjs/dayjs',
         ['bootstrap-vue/nuxt'],
     ],
+    toast: {
+        position: 'bottom-center',
+        duration: 3000,
+        className: 'toast-items',
+        containerClass: 'toast-container',
+
+    },
     dayjs: {
         locales: ['ko'],
         defaultLocale: 'ko',
