@@ -48,6 +48,7 @@ export default {
     */
     plugins: [
         // {src: '~/plugins/ionic.js', mode: 'client'},
+        '~/plugins/alert.js'
     ],
     /*
     ** Nuxt.js dev-modules
@@ -71,8 +72,13 @@ export default {
         ['@nuxtjs/component-cache', {maxAge: 5000}],
         // '@nuxtjs/moment',
         '@nuxtjs/dayjs',
+        ['vue-sweetalert2/nuxt'],
         ['bootstrap-vue/nuxt'],
     ],
+    sweetalert: {
+        confirmButtonColor: '#41b882',
+        cancelButtonColor: '#ff7674'
+    },
     toast: {
         position: 'bottom-center',
         duration: 3000,
