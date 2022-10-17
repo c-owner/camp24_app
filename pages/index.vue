@@ -8,15 +8,16 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
 
 export default {
     name: 'MainPage',
     asyncData({ store, redirect, app }) {
         if (!store.state.user_key) {
-            // alert('로그인이 필요합니다. 마이페이지로 이동합니다.');
+
             app.$alert.alert({
                 title: '알림',
-                content: '로그인이 필요합니다. <br/> 로그인 페이지로 이동합니다.',
+                content: '로그인이 필요합니다. <br/> 로그인 페이지로 이동합니다. <br/>',
                 closeBtn: true,
                 cancelBtn: true,
                 reverseBtn: true,
@@ -32,7 +33,8 @@ export default {
         }
     },
     data() {
-        return {}
+        return {
+        }
     }
 };
 </script>
