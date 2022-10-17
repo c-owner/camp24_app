@@ -54,7 +54,7 @@ export default {
     padding: 0 24px;
 }
 .app-content {
-    height: calc(100vh - 160px);
+    height: 100vh;
 }
 .app-footer {
     height: 80px;
