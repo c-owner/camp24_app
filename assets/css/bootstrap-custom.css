@@ -1,3 +1,8 @@
+:root {
+    --default-color: #000000;
+
+}
+
 .btn-black {
     background-color: var(--black);
 }
@@ -68,4 +73,67 @@
 .btn-blue-grey:not(:disabled):not(.disabled):active:focus, .btn-blue-grey:not(:disabled):not(.disabled).active:focus,
 .show > .btn-blue-grey.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(96, 125, 139, 0.5);
+}
+
+.btn-round {
+    border-radius: 60px;
+}
+
+.btn-r16 {
+    border-radius: 16px;
+}
+
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 17.5px;
+}
+
+.btn-white {
+    background-color: #FFFFFF;
+    color: var(--default-color);
+    border: 1px solid #E5E5E5;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    min-height: 24px;
+}
+
+i {
+    padding-right: 3px;
+}
+
+.btn-gray {
+    background-color: var(--grey-darken-2);
+    border: 1px solid #E5E5E5;
+}
+
+.btn-light {
+    background-color: var(--white);
+    color: var(--default-color);
+}
+
+.btn-danger {
+    background-color: var(--red-accent-1);
+    color: #FFFFFF;
+    border: 0;
+}
+
+.btn-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-black {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.btn-transparency {
+    background-color: #FFFFFFC3;
+}
+.btn:hover {
+    color: #FFFFFF;
+    background-color: var(--grey-darken-4);
 }
